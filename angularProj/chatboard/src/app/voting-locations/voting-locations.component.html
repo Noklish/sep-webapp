@@ -1,0 +1,29 @@
+<!-- implimentation based on learnangualr5 custome pipe search -->
+<div class="location" *ngIf="locations">
+  <div class="col">
+    <div class="form-label" *ngIf="filter && filter !== 'Current'">
+      <strong>Searching for:</strong>
+      {{ filter }}
+    </div>
+    <input class="form-control" type="text" name="locationFilter" [(ngModel)]="filter" placeholder="Enter a Zipcode or a Keyword">
+  </div>
+  <div class="" *ngIf="locations">
+    <div class="row mt-3 justify-content-center">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action flex-column align-items-start"
+        *ngFor="let location of (locations | searchLocation: filter)"
+        (click)="showLocation(location); filter='Current'"
+        [style.backgroundColor]="location.highlight ? '#EEE' : '#FFF'">
+        <app-location-list [location]="location"></app-location-list>
+      </a>
+    </div>
+  </div>
+</div>
+<app-location-details [location]="currentLocation"></app-location-details>
+<div class="row justify-content-center">
+  <button class="btn btn-secondary "
+  *ngIf="filter"
+  type="button"
+  (click)="filter=''; clear()">Go Back</button>
+</div>
+</div>

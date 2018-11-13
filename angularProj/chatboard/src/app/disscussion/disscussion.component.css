@@ -1,0 +1,8 @@
+textarea{
+  resize: none;
+
+}
+
+#postField {
+  height: 20ex;
+}

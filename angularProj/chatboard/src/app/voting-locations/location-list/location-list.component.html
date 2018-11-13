@@ -1,0 +1,20 @@
+<div class="media">
+  <img class="mr-3 rounded align-self-center img-fluid"
+  style="width:200px;"
+  src="assets/location/{{location?.picture}}"
+  alt="{{ 'Photo of ' + location.locationName }}">
+  <div class="media-body align-self-center">
+
+    <h5 class="mr-0">{{ location.locationName }}</h5>
+    <strong>Opening Hours:</strong>
+    <p>{{location.hours}}</p>
+    <strong>Address:</strong>
+    <p> {{ location.address }}</p>
+    <p> {{ location.zipcode }}</p>
+
+    <div class="info" *ngIf="location.info">
+      <strong>Additional info:</strong>
+      <p>{{location.info}}</p>
+    </div>
+  </div>
+</div>

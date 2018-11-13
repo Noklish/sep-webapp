@@ -1,0 +1,77 @@
+<div class="profile-update">
+
+    <div class="container mt-5">
+      <form #updateform="ngForm" name="updateForm" class="mb-3">
+
+        <div class="row">
+          <div class="col-8">
+
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party">Update First Name</label>
+                <input #firstName class="form-control" id="first-name" name="firstName" [(ngModel)]="profile.firstname" placeholder={{currentUser.firstname}}>
+              </span>
+            </div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party">Update Last Name</label>
+                <input #lastName class="form-control" id="last-name" name="lastName" [(ngModel)]="profile.lastname" placeholder={{currentUser.lastname}}>
+              </span>
+
+            </div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party">Update Email</label>
+                <input class="form-control" type="text" name="Email" id="Email" placeholder={{currentUser.email}} [(ngModel)]="profile.email"
+                  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #emailAddress="ngModel">
+                <span class="help-block" *ngIf="!emailAddress.valid && emailAddress.touched" ng-disabled="submit">Please enter a valid email adderss!</span>
+              </span>
+            </div>
+
+            <div class="form-row ,mt-3" id="useless">
+              <span class="col">
+                <label>Change Declared Track</label>
+                <select #track class="form-control" id="track" name="track" [(ngModel)]="profile.track">
+                  <option value="" [disabled]="true" [selected]="true"></option>
+                  <option *ngFor="let track of ['Pre-Med','Information Security','Data-Intensive', 'General']">{{track}}</option>
+                </select>
+              </span>
+            </div>
+
+          </div>
+
+          <div class="col mt-0 mx-auto">
+            <div class="card h-0" style="width: 18rem;">
+              <img class="card-img-top" src="./assets/profile/placeholder.png" alt="picture of {{currentUser.firstname}}">
+              <div class="card-body">
+                <h5 class="card-title text-center">Your Profile Picture</h5>
+              </div>
+              <div class="fileinput fileinput-new" data-provides="fileinput">
+                <span class="btn btn-default btn-file">
+                  <!-- <div class="text-center">Current User: {{currentUser.username}}</div> -->
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <!-- <label>for= "party float-left"</label> -->
+          <button #submit type="submit" class="btn mt-3" id="submit" name="submit" [disabled]="!updateform.valid" (click)="update();" id = "updateActBtn">Update Account</button>
+          <button type="submit" class="btn mt-3 ml-4" (click)="updateform.reset();" id="cancelBtn"> Cancel</button>
+        </div>
+      </form>
+
+      <div>
+
+        <div>
+          <app-password-change></app-password-change>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div>
+    <app-update-issues></app-update-issues>
+  </div> -->

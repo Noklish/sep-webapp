@@ -1,0 +1,28 @@
+<div class="">
+  <form #issuesForm="ngForm" class="mb-3">
+    <div class="card border-0">
+      <div class="card-body">
+        <h5 class="card-header bg-light text-center">Tell us some of the issues that you care about?</h5>
+        <div>
+          <div class="app flex-row align-items-center">
+            <div class="row">
+              <div class=" col-md-4" *ngFor="let n of issues">
+                <div class="">
+                  <input type="checkbox"  name="checkboxes" [(ngModel)]="n.selected"> {{n.issue}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center"> <input type="checkbox" name="selectAll"[(ngModel)]="selectedAll" />Select All</div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="text-center">
+                <button type="submit" class="btn mt-3  btn-success"  (click) ="update();">Save</button>
+                <button type="submit" class="btn mt-3 ml-4 btn-danger">  Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

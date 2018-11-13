@@ -1,0 +1,34 @@
+<!-- implimentation based on learnangualr5 custome pipe search -->
+<div class="container mt-3" *ngIf="location.locationName">
+  <div class="jumbotron">
+    <h1 class="display-4">{{ location.locationName }}</h1>
+    <div class="lead">
+      <div class="col-sm-5 col-lg-4 float-right">
+        <img class="img-fluid rounded"
+        src="assets/location/{{location?.picture}}"
+        alt="{{location.locationName}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="lead col">
+        <strong>Address:</strong>
+        <p> {{ location.address }}</p>
+        <p> {{ location.zipcode }}</p>
+      </div>
+      <div class="lead col">
+        <strong>Opening Hours:</strong>
+        <p>{{location.hours}}</p>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div>
+      <div class="info">
+        <strong>Additional info:</strong>
+        <p>{{location.info}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
