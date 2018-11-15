@@ -2,10 +2,12 @@
   <div class="">
     <div class="card hovercard">
       <div class="card-background">
-        <img class="card-bkimg" alt="" src="./assets/profile/{{userShow.picture}}">
+        <!-- <img class="card-bkimg" alt="" src="./assets/profile/{{userShow.picture}}"> -->
+        <img class="card-bkimg" alt="" src="./assets/profile/placeholder.png">
       </div>
       <div class="useravatar">
-        <img alt="" src="./assets/profile/{{userShow.picture}}">
+        <!-- <img alt="" src="./assets/profile/{{userShow.picture}}"> -->
+        <img alt="" src="./assets/profile/placeholder.png">
       </div>
       <div class="card-info">
         <span class="card-title">{{userShow.firstname}} {{userShow.lastname}}</span>
@@ -22,12 +24,12 @@
           <button type="submit" class="btn btn-success float-right" routerLink="/home/update">Update Account</button>
         </div>
         <div class="col" *ngIf="userShow.username !== currentUser.username">
-          <button type="submit" class="btn btn-info float-right" routerLink="/home/search">Find More Candidates</button>
+          <button type="submit" class="btn btn-info float-right" routerLink="/home/search">Send Friend Request</button>
         </div>
       </div>
     </div>
-    <div class="card-body" *ngIf="userShow.description">
-      <h5 class="card-title">Description: {{userShow.description}}</h5>
+    <div class="card-body" *ngIf="userShow.track">
+      <h5 class="card-title">Track: {{userShow.track}}</h5>
     </div>
   </div>
   <div class="row">
@@ -39,12 +41,9 @@
         <p class="pull-left">Email:
           <strong>{{userShow.email}}</strong>
         </p>
-        <p class="pull-left" *ngIf="userShow?.zipcode">Zipcode:
-          <strong>{{userShow?.zipcode}}</strong>
-        </p>
       </div>
     </div>
-    <div class="col">
+    <!-- <div class="col">
       <div class="card">
         <p class="pull-left">Position running:
           <strong>{{userShow.candidates}}</strong>
@@ -56,9 +55,9 @@
           <strong>{{userShow?.phone}}</strong>
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col" *ngIf="userShow?.issues[0] != null">
       <div class="card">
         <div class="card-header">
@@ -69,7 +68,7 @@
         </ul>
       </div>
     </div>
-    <div class="col" *ngIf="userShow?.historyArr[0] != null">
+     <div class="col" *ngIf="userShow?.historyArr[0] != null">
       <div class="card">
         <div class="card-header">
           <h4>Voting History</h4>
@@ -80,5 +79,5 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

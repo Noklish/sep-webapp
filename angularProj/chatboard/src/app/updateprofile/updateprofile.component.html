@@ -4,8 +4,20 @@
       <form #updateform="ngForm" name="updateForm" class="mb-3">
 
         <div class="row">
-          <div class="col-8">
-
+            <div class="mt-0 mx-auto">
+                <div class="card h-0" id="profPic" style="width: 18rem;">
+                  <img class="card-img-top" src="./assets/profile/placeholder.png" alt="picture of {{currentUser.firstname}}">
+                  <div class="card-body">
+                    <!-- <h5 class="card-title text-center">Your Profile Picture</h5> -->
+                  </div>
+                  <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <span class="btn btn-default btn-file">
+                      <!-- <div class="text-center">Current User: {{currentUser.username}}</div> -->
+                    </span>
+                  </div>
+                </div>
+              </div>
+          <div class="col-12">
             <div class="form-row mt-3">
               <span class="col">
                   <label for="party">Update First Name</label>
@@ -28,7 +40,7 @@
               </span>
             </div>
 
-            <div class="form-row ,mt-3" id="useless">
+            <div class="form-row mt-3" id="useless">
               <span class="col">
                 <label>Change Declared Track</label>
                 <select #track class="form-control" id="track" name="track" [(ngModel)]="profile.track">
@@ -36,21 +48,6 @@
                   <option *ngFor="let track of ['Pre-Med','Information Security','Data-Intensive', 'General']">{{track}}</option>
                 </select>
               </span>
-            </div>
-
-          </div>
-
-          <div class="col mt-0 mx-auto">
-            <div class="card h-0" style="width: 18rem;">
-              <img class="card-img-top" src="./assets/profile/placeholder.png" alt="picture of {{currentUser.firstname}}">
-              <div class="card-body">
-                <h5 class="card-title text-center">Your Profile Picture</h5>
-              </div>
-              <div class="fileinput fileinput-new" data-provides="fileinput">
-                <span class="btn btn-default btn-file">
-                  <!-- <div class="text-center">Current User: {{currentUser.username}}</div> -->
-                </span>
-              </div>
             </div>
           </div>
         </div>
@@ -60,9 +57,7 @@
           <button type="submit" class="btn mt-3 ml-4" (click)="updateform.reset();" id="cancelBtn"> Cancel</button>
         </div>
       </form>
-
       <div>
-
         <div>
           <app-password-change></app-password-change>
         </div>

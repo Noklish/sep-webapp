@@ -35,7 +35,6 @@ export class UpdateprofileComponent implements OnInit {
     this.profile = {};
   }
 
-
   update() {
     if (!(this.profile.email)) {
       this.profile.email = this.currentUser.email;

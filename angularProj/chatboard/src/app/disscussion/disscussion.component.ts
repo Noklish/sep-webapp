@@ -15,23 +15,24 @@ export class DisscussionComponent implements OnInit, OnDestroy {
 
 currentUser: Profile;
 showCommentFields = false;
-post: Post;
+post;
 postsArr: Post;
 currentForum;
-
+tempPost;
+lastPostIndex;
 
 constructor(
   private postService: PostService,
   public router: Router,
 ) {
   this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  console.log('asd');
 }
 
 
 ngOnInit() {
-
   this.currentForum = this.returnForum(this.currentUser);
+  // localStorage.removeItem('lastPostIndex');
+  // this.lastPostIndex = this.returnIndex();
   this.showPosts();
 }
 
@@ -44,11 +45,11 @@ returnForum(user: Profile) {
 }
 
 storePosts(form: NgForm) {
-  this.post = {
+    this.post = {
       username: this.currentUser.username,
       body: this.postForm.value.newPost,
       title: ' ',
-      forumid: this.currentUser.lastForum
+      forumid: this.currentUser.lastForum,
     };
 
     this.postService.storePosts(this.post)
@@ -57,18 +58,20 @@ storePosts(form: NgForm) {
       (error) => console.log(error),
     );
     this.postForm.reset();
-  }
+}
 
-  ngOnDestroy() {
-    console.log('ngOnDestroy');
-  }
+ngOnDestroy() {
+  console.log('ngOnDestroy');
+}
 
-  showPosts() {
-    console.log('t');
-      this.postService.getPosts(this).subscribe(posts => {
-      this.postsArr = posts;
-    });
-  }
+showPosts() {
+    this.postService.getPosts(this).subscribe(posts => {
+    this.postsArr = posts;
+    for (let i = 0; i < Object.keys(this.postsArr).length; i++) {
+      this.postsArr[i].id = posts[i].postID;
+    }
+  });
+}
 
   postDelete(item: any) {
     this.postService.deletePosts(item)

@@ -39,7 +39,7 @@ export class CommentsComponent implements OnInit {
 
   onEnter(form: NgForm) {
     this.comment = {
-      userName: this.currentUser.username,
+      username: this.currentUser.username,
       body: this.commentForm.value.newComments,
       id: this.postId
     };

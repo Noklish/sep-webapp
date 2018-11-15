@@ -13,8 +13,6 @@ export class ProfilePageComponent implements OnInit {
   public currentUser: Profile;
   testUser: any;
   userShow: Profile;
-  issues: any[];
-  history: any[];
 
   constructor(
     private profileService: ProfileRepository,
@@ -26,10 +24,8 @@ export class ProfilePageComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.activatedRoute.params.subscribe((params: any) => {
       this.profileService.getAccount(params.username).subscribe(user => {
+        console.log(user);
         this.userShow = user;
-        this.issues = this.userShow.issues;
-        this.history = this.userShow.historyArr;
-        // console.log(this.issues);
       });
     });
   }

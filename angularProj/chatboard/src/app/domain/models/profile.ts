@@ -4,14 +4,7 @@ export class Profile {
   lastname?: string;
   email?: string;
   password?: string;
-  isVerified?: boolean;
-  zipcode?: string;
   track?: string;
-  party?: string;
-  phone?: string;
-  description?: string;
   picture?: string;
-  issues?: string[];
-  historyArr?: string[];
   lastForum?: number;
 }
