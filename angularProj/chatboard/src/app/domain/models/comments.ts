@@ -1,5 +1,5 @@
 export class Comments {
-  username?: string;
+  userName?: string;
   body?: string;
   id?: number;
 }

@@ -17,14 +17,12 @@ export class ProfilePageComponent implements OnInit {
   constructor(
     private profileService: ProfileRepository,
     private activatedRoute: ActivatedRoute) {
-    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.activatedRoute.params.subscribe((params: any) => {
       this.profileService.getAccount(params.username).subscribe(user => {
-        console.log(user);
         this.userShow = user;
       });
     });
@@ -32,7 +30,6 @@ export class ProfilePageComponent implements OnInit {
 
   public getProfile(): void {
     const id = +this.activatedRoute.snapshot.paramMap.get('userName');
-    // console.log(id);
     this.profileService.getAccount(id)
       .subscribe(profile => this.userShow = profile);
   }

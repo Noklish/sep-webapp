@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Profile } from './../domain/models/profile';
 import { AlertService } from '../domain/services/alert.service';
@@ -12,9 +12,12 @@ import { ProfileRepository } from '../domain/profile-repository.service';
 })
 export class UpdateprofileComponent implements OnInit {
 
+  @ViewChild('f') bioForm: NgForm;
+
   @Input()
   public profile: Profile;
   public currentUser: Profile;
+  public str: string;
 
   constructor(
     private alertService: AlertService,
@@ -48,11 +51,18 @@ export class UpdateprofileComponent implements OnInit {
     }
     if (!this.profile.track) {
       this.profile.track = this.currentUser.track;
+      console.log(this.str);
+    }
+    if (this.str) {
+      // this.profile.bio = this.currentUser.bio;
+      console.log(this.str);
+      this.profile.bio = this.str;
     }
       console.log(this.profile);
       this.profileRepository.update(`/api/updateProfile/${this.currentUser.username}`, this.profile).subscribe(x => {
       this.alertService.clear();
       this.alertService.success('Your profile has been updated');
+      // this.bioForm.reset();
       this.router.navigateByUrl(`/home/profile/${this.currentUser.username}`);
     });
     // console.log(this.profile);

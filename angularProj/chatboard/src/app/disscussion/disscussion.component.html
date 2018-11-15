@@ -32,24 +32,12 @@
           ngModel>
         </textarea>
 
-        <div class="from-group border border-danger mb-3" *ngFor="let post of postsArr">
+        <div class="from-group border border-muted mb-3" *ngFor="let post of postsArr">
 
           <ul class="list-group">
             <div class="d-flex justify-content-between">
-              <div class="input-group-prepend">
-                <span class="input-group-text rounded-0" id="inputGroup-sizing-sm">Username: {{ post.userName }}</span>
-              </div>
-
               <div class="input-group">
-                <span class="input-group-text rounded-0">{{ post.title }}</span>
-              </div>
-
-              <div class="input-group">
-                  <p class="input-group-text rounded-0">{{ post.track }}</p>
-              </div>
-
-              <div class="input-group">
-                <p class="input-group-text rounded-0">{{ post.gradYear }}</p>
+                <span class="input-group-text rounded font-weight-bold" id="postTitle">{{ post.title }}</span>
               </div>
 
               <div class="input-group-append"><span class="input-group-text rounded-0" id="inputGroup-sizing-sm">{{ post.postdate | date:'short' }}</span>
@@ -59,6 +47,18 @@
               </div>
             </div>
             <li class="list-group-item" id="postField">{{ post.body }}</li>
+            <div class="d-flex justify-content-between">
+                <div class="input-group-prepend">
+                    <span class="input-group-text rounded-0" id="inputGroup-sizing-sm">Username: {{ post.userName }}</span>
+                </div>
+                <div class="input-group">
+                    <p class="input-group-text rounded-0">Track: {{ post.track }}</p>
+                </div>
+                <div class="input-group-append">
+                    <p class="input-group-text rounded-0">Grad Year: {{ post.gradYear }}</p>
+                </div>
+            </div>
+
             <app-comments [postId]="post.id"></app-comments>
           </ul>
         </div>

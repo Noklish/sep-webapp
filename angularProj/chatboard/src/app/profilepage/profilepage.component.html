@@ -1,18 +1,16 @@
 <div *ngIf="userShow">
   <div class="">
-    <div class="card hovercard">
+    <!-- <div class="card hovercard">
       <div class="card-background">
-        <!-- <img class="card-bkimg" alt="" src="./assets/profile/{{userShow.picture}}"> -->
         <img class="card-bkimg" alt="" src="./assets/profile/placeholder.png">
       </div>
       <div class="useravatar">
-        <!-- <img alt="" src="./assets/profile/{{userShow.picture}}"> -->
         <img alt="" src="./assets/profile/placeholder.png">
       </div>
       <div class="card-info">
-        <span class="card-title">{{userShow.firstname}} {{userShow.lastname}}</span>
+        <span class="card-title font-weight-bold" id="cardName">{{userShow.firstname}} {{userShow.lastname}}</span>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="card" *ngIf="userShow">
     <div class="card-header">
@@ -21,10 +19,10 @@
           <h4>User Profile: {{userShow.username}}</h4>
         </div>
         <div class="col" *ngIf="userShow.username === currentUser.username">
-          <button type="submit" class="btn btn-success float-right" routerLink="/home/update">Update Account</button>
+          <button type="submit" class="btn btn-primary float-right" routerLink="/home/update">Update Account</button>
         </div>
         <div class="col" *ngIf="userShow.username !== currentUser.username">
-          <button type="submit" class="btn btn-info float-right" routerLink="/home/search">Send Friend Request</button>
+          <button type="submit" class="btn btn-info float-right" routerLink="/home">Send Friend Request</button>
         </div>
       </div>
     </div>

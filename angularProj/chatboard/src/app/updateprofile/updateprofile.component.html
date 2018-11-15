@@ -4,19 +4,19 @@
       <form #updateform="ngForm" name="updateForm" class="mb-3">
 
         <div class="row">
-            <div class="mt-0 mx-auto">
+            <!-- <div class="mt-0 mx-auto">
                 <div class="card h-0" id="profPic" style="width: 18rem;">
                   <img class="card-img-top" src="./assets/profile/placeholder.png" alt="picture of {{currentUser.firstname}}">
                   <div class="card-body">
-                    <!-- <h5 class="card-title text-center">Your Profile Picture</h5> -->
+                     <h5 class="card-title text-center">Your Profile Picture</h5>
                   </div>
                   <div class="fileinput fileinput-new" data-provides="fileinput">
                     <span class="btn btn-default btn-file">
-                      <!-- <div class="text-center">Current User: {{currentUser.username}}</div> -->
+                       <div class="text-center">Current User: {{currentUser.username}}</div>
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> -->
           <div class="col-12">
             <div class="form-row mt-3">
               <span class="col">
@@ -46,12 +46,22 @@
                 </span>
             </div>
 
-              <div class="form-row mt-3">
-                  <span class="col">
-                      <label for="party">Update Bio</label>
-                    <input #lastName class="form-control" id="bio" name="bio" [(ngModel)]="profile.bio" placeholder={{currentUser.bio}}>
-                  </span>
-              </div>
+            <!-- <div class="form-row mt-3">
+                <span class="col">
+                    <label for="party">Update Bio</label>
+                  <input #lastName class="form-control" id="bio" name="bio" [(ngModel)]="profile.bio" placeholder={{currentUser.bio}}>
+                </span>
+            </div> -->
+
+            <label for="updateBio" class="mt-3">Update Bio</label>
+            <textarea
+            rows="4"
+            class="form-control mb-2"
+            name="updateBio"
+            placeholder="Write something about yourself."
+            [(ngModel)]="str"
+            >
+            </textarea>
 
             <div class="form-row mt-3" id="useless">
               <span class="col">

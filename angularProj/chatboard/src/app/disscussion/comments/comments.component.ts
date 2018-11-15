@@ -41,8 +41,9 @@ export class CommentsComponent implements OnInit {
     this.comment = {
       username: this.currentUser.username,
       body: this.commentForm.value.newComments,
-      id: this.postId
+      postid: this.postId
     };
+    // console.log(this.comment);
 
     this.postService.addComment(this.comment)
     .subscribe(

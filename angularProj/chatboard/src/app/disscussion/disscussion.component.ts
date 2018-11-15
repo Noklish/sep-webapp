@@ -39,7 +39,8 @@ ngOnInit() {
 
 returnForum(user: Profile) {
   if (user.lastForum === undefined) {
-    return 1;
+    this.currentUser.lastForum = 1;
+    return this.currentUser.lastForum;
   } else {
     return this.currentUser.lastForum;
   }
