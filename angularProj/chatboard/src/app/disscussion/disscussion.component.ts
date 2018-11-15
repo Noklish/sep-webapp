@@ -82,9 +82,9 @@ showPosts() {
     for (let i = 0; i < Object.keys(this.postsArr).length; i++) {
       this.postsArr[i].id = posts[i].postID;
       this.postsArr[i].title = posts[i].title;
-      if (posts[i].username === this.currentUser.username) {
-        this.postsArr[i].track = this.currentUser.track;
-      }
+      // if (posts[i].username === this.currentUser.username) {
+      //   this.postsArr[i].track = this.currentUser.track;
+      // }
     }
   });
 }

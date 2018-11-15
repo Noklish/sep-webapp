@@ -5,7 +5,7 @@ export class Post {
   id?: number;
   forumid?: number;
   postdate?: string;
-  gradYear?: number;
+  gradYear?: any;
   track?: string;
 }
 

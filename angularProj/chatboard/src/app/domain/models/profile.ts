@@ -6,6 +6,7 @@ export class Profile {
   password?: string;
   track?: string;
   picture?: string;
-  gradYear?: number;
+  gradYear?: any;
   lastForum?: number;
+  bio?: string;
 }
