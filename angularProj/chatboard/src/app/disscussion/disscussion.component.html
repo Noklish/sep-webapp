@@ -31,7 +31,7 @@
                 <span class="input-group-text rounded-0" id="inputGroup-sizing-sm">{{ post.userName }}</span>
               </div>
               <div class="input-group-append"><span class="input-group-text rounded-0" id="inputGroup-sizing-sm">{{ post.postdate | date:'short' }}</span>
-                <button type="button" *ngIf="post.userName == currentUser.username" (click)="postDelete(post.id)">
+                <button type="button" class="btn btn-danger" *ngIf="post.userName == currentUser.username" (click)="postDelete(post.id)">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
