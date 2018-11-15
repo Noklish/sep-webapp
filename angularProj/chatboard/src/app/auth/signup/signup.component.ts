@@ -36,7 +36,8 @@ export class SignupComponent implements OnInit {
       email: this.signupForm.value.personalData.email,
       username: this.signupForm.value.personalData.username,
       password: this.signupForm.value.personalData.password,
-      track: this.signupForm.value.personalData.trackSelect
+      track: this.signupForm.value.personalData.trackSelect,
+      gradYear: this.signupForm.value.personalData.gradYear
     };
     console.log(this.users);
 

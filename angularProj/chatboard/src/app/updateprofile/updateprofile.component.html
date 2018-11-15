@@ -39,6 +39,20 @@
                 <span class="help-block" *ngIf="!emailAddress.valid && emailAddress.touched" ng-disabled="submit">Please enter a valid email adderss!</span>
               </span>
             </div>
+            <div class="form-row mt-3">
+                <span class="col">
+                    <label for="party">Update Last Name</label>
+                  <input #lastName class="form-control" id="last-name" name="lastName" [(ngModel)]="profile.lastname" placeholder={{currentUser.lastname}}>
+                </span>
+  
+              </div>
+              <div class="form-row mt-3">
+                  <span class="col">
+                      <label for="party">Update Last Name</label>
+                    <input #lastName class="form-control" id="last-name" name="lastName" [(ngModel)]="profile.lastname" placeholder={{currentUser.lastname}}>
+                  </span>
+    
+                </div>
 
             <div class="form-row mt-3" id="useless">
               <span class="col">

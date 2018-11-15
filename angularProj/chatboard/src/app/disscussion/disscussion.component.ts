@@ -20,6 +20,7 @@ postsArr: Post;
 currentForum;
 tempPost;
 lastPostIndex;
+postOwner: Profile;
 
 constructor(
   private postService: PostService,
@@ -44,12 +45,22 @@ returnForum(user: Profile) {
   }
 }
 
+// getTrack(user: Profile) {
+//   if (user.username === this.currentUser.username) {
+//     user.track = this.currentUser.track;
+//   } else {
+//     return;
+//   }
+// }
+
 storePosts(form: NgForm) {
     this.post = {
       username: this.currentUser.username,
       body: this.postForm.value.newPost,
-      title: ' ',
-      forumid: this.currentUser.lastForum,
+      title: this.postForm.value.postTitle,
+      track: this.currentUser.track,
+      gradYear: this.currentUser.gradYear,
+      forumid: this.currentUser.lastForum
     };
 
     this.postService.storePosts(this.post)
@@ -67,8 +78,13 @@ ngOnDestroy() {
 showPosts() {
     this.postService.getPosts(this).subscribe(posts => {
     this.postsArr = posts;
+    console.log(posts);
     for (let i = 0; i < Object.keys(this.postsArr).length; i++) {
       this.postsArr[i].id = posts[i].postID;
+      this.postsArr[i].title = posts[i].title;
+      if (posts[i].username === this.currentUser.username) {
+        this.postsArr[i].track = this.currentUser.track;
+      }
     }
   });
 }
