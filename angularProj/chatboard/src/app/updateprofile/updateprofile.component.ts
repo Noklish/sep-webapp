@@ -23,9 +23,7 @@ export class UpdateprofileComponent implements OnInit {
     private alertService: AlertService,
     public router: Router,
     public profileRepository: ProfileRepository,
-  ) {
-
-   }
+  ) { }
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));

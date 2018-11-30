@@ -10,24 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  candidates = ['President', 'Senator', 'Congressman', 'Voter'];
-  parties = ['Democrat', 'Republican', 'Independent'];
 @ViewChild('f') signupForm: NgForm;
 
  users;
  loading = false;
 
- showCandidateList: Boolean;
- showPartyList: Boolean;
-
   constructor(
     private serverService: ServerService,
     public router: Router,
     private alertService: AlertService
-  ) {
-    this.showCandidateList = false;
-    this.showPartyList = false;
-  }
+  ) { }
+
   addUser(form: NgForm) {
     this.loading = true;
     this.users = {
