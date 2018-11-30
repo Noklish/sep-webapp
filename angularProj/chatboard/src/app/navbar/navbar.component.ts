@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm, NgModel, FormControl } from '@angular/forms';
 import { Profile } from '../domain/models/profile';
 import { ActivatedRoute, Router } from '@angular/router';
 

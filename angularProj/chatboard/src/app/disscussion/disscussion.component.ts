@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgModel, NgForm, FormsModule, FormControl } from '@angular/forms';
 import { PostService } from './post.service';
-import { Profile } from '../domain/models/profile';
-import { Post } from '../domain/models/post';
+import { Post, Profile } from '../domain/models/index';
+
 @Component({
   selector: 'app-disscussion',
   templateUrl: './disscussion.component.html',
@@ -32,8 +32,6 @@ constructor(
 
 ngOnInit() {
   this.currentForum = this.returnForum(this.currentUser);
-  // localStorage.removeItem('lastPostIndex');
-  // this.lastPostIndex = this.returnIndex();
   this.showPosts();
 }
 

@@ -1,6 +1,3 @@
-// implementation of alert component and services was based on the following code
-// http://jasonwatmore.com/post/2017/06/25/angular-2-4-alert-toaster-notifications
-
 import { Component, OnInit } from '@angular/core';
 import { Alert, AlertType } from './../domain/models/alert';
 import { AlertService } from '../domain/services/alert.service';

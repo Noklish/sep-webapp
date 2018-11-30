@@ -1,10 +1,8 @@
 import { NgForm, NgModel, FormsModule, FormControl } from '@angular/forms';
 import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
 import { PostService } from '../post.service';
-import { Profile } from '../../domain/models/profile';
-import { Comments } from '../../domain/models/comments';
-import { Post } from '../../domain/models/post';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Comments, Profile } from '../../domain/models/index';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comments',
@@ -43,7 +41,6 @@ export class CommentsComponent implements OnInit {
       body: this.commentForm.value.newComments,
       postid: this.postId
     };
-    // console.log(this.comment);
 
     this.postService.addComment(this.comment)
     .subscribe(

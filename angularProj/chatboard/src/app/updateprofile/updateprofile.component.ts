@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
-import { Profile } from './../domain/models/profile';
-import { AlertService } from '../domain/services/alert.service';
 import { Router } from '@angular/router';
+
+import { Profile } from '../domain/models/profile';
+import { AlertService } from '../domain/services/alert.service';
 import { ProfileRepository } from '../domain/profile-repository.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProfileRepository } from '../domain/profile-repository.service';
   templateUrl: './updateprofile.component.html',
   styleUrls: ['./updateprofile.component.css']
 })
-export class UpdateprofileComponent implements OnInit {
+export class UpdateProfileComponent implements OnInit {
 
   @ViewChild('f') bioForm: NgForm;
 
@@ -27,8 +28,6 @@ export class UpdateprofileComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    // console.log(this.currentUser);
-    // I'm uncertain that the entire user is stored locally, should be a route.
     this.profileRepository.getAccount(this.currentUser.username).subscribe(user => {
       this.currentUser = user;
       this.currentUser.track = user.track;
@@ -52,7 +51,6 @@ export class UpdateprofileComponent implements OnInit {
       console.log(this.str);
     }
     if (this.str) {
-      // this.profile.bio = this.currentUser.bio;
       console.log(this.str);
       this.profile.bio = this.str;
     }
@@ -60,11 +58,8 @@ export class UpdateprofileComponent implements OnInit {
       this.profileRepository.update(`/api/updateProfile/${this.currentUser.username}`, this.profile).subscribe(x => {
       this.alertService.clear();
       this.alertService.success('Your profile has been updated');
-      // this.bioForm.reset();
       this.router.navigateByUrl(`/home/profile/${this.currentUser.username}`);
     });
-    // console.log(this.profile);
     this.profile = {};
   }
-
 }

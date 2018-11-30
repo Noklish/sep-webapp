@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Post } from '../domain/models/post';
 import { DisscussionComponent } from './disscussion.component';
-
 
 @Injectable()
 export class PostService {

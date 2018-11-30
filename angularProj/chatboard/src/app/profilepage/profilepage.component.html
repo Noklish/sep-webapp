@@ -1,16 +1,5 @@
 <div *ngIf="userShow">
   <div class="">
-    <!-- <div class="card hovercard">
-      <div class="card-background">
-        <img class="card-bkimg" alt="" src="./assets/profile/placeholder.png">
-      </div>
-      <div class="useravatar">
-        <img alt="" src="./assets/profile/placeholder.png">
-      </div>
-      <div class="card-info">
-        <span class="card-title font-weight-bold" id="cardName">{{userShow.firstname}} {{userShow.lastname}}</span>
-      </div>
-    </div> -->
   </div>
   <div class="card" *ngIf="userShow">
     <div class="card-header">
@@ -48,41 +37,5 @@
         </p>
       </div>
     </div>
-    <!-- <div class="col">
-      <div class="card">
-        <p class="pull-left">Position running:
-          <strong>{{userShow.candidates}}</strong>
-        </p>
-        <p class="pull-left">Party Affiliation:
-          <strong>{{userShow.party}}</strong>
-        </p>
-        <p class="pull-left" *ngIf="userShow.phone !== 'null'">Phone:
-          <strong>{{userShow?.phone}}</strong>
-        </p>
-      </div>
-    </div> -->
   </div>
-  <!-- <div class="row">
-    <div class="col" *ngIf="userShow?.issues[0] != null">
-      <div class="card">
-        <div class="card-header">
-          <h4>Issues</h4>
-        </div>
-        <ul class="list-group list-group-flush" *ngFor="let issue of issues">
-          <li class="list-group-item">{{issue}}</li>
-        </ul>
-      </div>
-    </div>
-     <div class="col" *ngIf="userShow?.historyArr[0] != null">
-      <div class="card">
-        <div class="card-header">
-          <h4>Voting History</h4>
-        </div>
-        <div class="list-group-item" *ngIf="userShow.candidates === 'Voter'">Just a voter!</div>
-        <ul class="list-group list-group-flush" *ngFor="let voting of history">
-          <li class="list-group-item">{{voting}}</li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
 </div>

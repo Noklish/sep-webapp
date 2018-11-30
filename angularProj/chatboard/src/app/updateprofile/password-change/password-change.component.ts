@@ -38,7 +38,6 @@ export class PasswordChangeComponent implements OnInit {
     if (this.newPassword !== this.secondPassword) {
        this.alertService.clear();
        this.alertService.error('Error new passwords did not match');
-       // console.log(this.firstPassword + this.oldPassword + this.secondPassword);
      } else {
        console.log(this.password);
        this.profileRepository.update(`api/updatePassword/${this.currentUser.username}`, this.password).subscribe(x => {
