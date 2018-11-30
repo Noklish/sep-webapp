@@ -13,7 +13,7 @@ CREATE TABLE Users (
     bio varchar(1000),
 	firstName varchar(30),
 	lastName varchar(30),
-	PRIMARY KEY (userID)
+	PRIMARY KEY (userName)
 );
 Insert into Users (userName, pass, email) values ("admin", "password", "admin@lyle.io");
 #Insert into users (userName, pass, track, email, firstName, lastName, gradYear, bio) values ("Test","testpass","CSE", "test@test.net", "Test", "User", 2018, "I am a test user and literally do not exist");
@@ -41,7 +41,8 @@ CREATE TABLE Posts (
 	forumID int NOT NULL,
 	postdate DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (postID),
-	FOREIGN KEY(forumID) REFERENCES Forums(forumID) ON DELETE CASCADE
+	FOREIGN KEY(forumID) REFERENCES Forums(forumID) ON DELETE CASCADE,
+	FOREIGN KEY (userName) REFERENCES Users(userName)
 );
 #Insert into Posts (userName, title, body, forumID, postdate) values ("Test", "Need help choosing a track","I dunno what track I want to be on and need advice on how to choose",1, '2018-01-01 00:00:00');
 #Insert into Posts (userName, title, body, forumID, postdate) values ("JSmith", "Encryption","I need to figure out how to encrypt this data for homework",2,'2018-11-13 12:00:00');
@@ -60,7 +61,8 @@ CREATE TABLE Messages (
 	body varchar(512) NOT NULL,
 	postdate DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (msgID),
-	FOREIGN KEY(postID) REFERENCES Posts(postID) ON DELETE CASCADE
+	FOREIGN KEY(postID) REFERENCES Posts(postID) ON DELETE CASCADE,
+	FOREIGN KEY (userName) REFERENCES Users(userName)
 );
 #Insert into Messages (userName, postID, body) values ("NSchweser", 1,"Try game development!");
 #Insert into Messages (userName, postID, body) values ("JSmith", 4,"Sounds fun! What time is it?");
